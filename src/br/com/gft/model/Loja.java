@@ -59,8 +59,9 @@ public class Loja {
 		for (Livro index : livros) {
 			if(index.getQtd() == 0) {
 				System.out.println("A loja não tem livros no seu estoque!");
-			}
+			}else {
 			System.out.println("Titulo:" + index.getNome() + " preço:" + index.getPreco() + " quantidade: " + index.getQtd() + " em estoque");
+			}
 		}
 		System.out.println("---------------------------------------------------------------------------------------------------------------------");
 	}
@@ -79,10 +80,10 @@ public class Loja {
 	public double calculaPatrimonio() {
 		double soma = 0;
 		for (Livro index : livros) {
-			soma = soma + index.getPreco();
+			soma += (double)index.getQtd() * index.getPreco();
 		}
 		for (VideoGame index : videoGames) {
-			soma = soma + index.getPreco();
+			soma += (double)index.getQtd() * index.getPreco();
 		}
 		System.out.println("O patrimonio da loja: " + nome + " é de R$" + soma + ".");
 		return soma;
